@@ -15,7 +15,8 @@ module.exports = function isloggedin(req, res, next) {
         }
     }
     catch (err) {
-        req.flash("error", "Invalid token. Please login again."); return res.redirect('/');
+        req.flash("error", "Invalid token. Please login again."); 
+        return res.redirect('/');
     }
 
 }

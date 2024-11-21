@@ -19,29 +19,17 @@ const {registeruser,loginuser} = require('../controllers/userregister')
 
 require('dotenv').config()
 
-router.get('/', function (req, res) {
-    res.send("hello")
-})
 
-router.post('/get', registeruser);
+router.get('/',isloggedin,function(req,res){
+    res.render('shop')
+})
+router.post('/register', registeruser);
 
 router.post('/login', loginuser);
 
-
-router.get('/logout', function (req, res) {
-    res.cookie("token", "")
-    return res.send("logout successfully")
-})
-
-
-
-router.get('/profile', isloggedin , function (req, res) {
-    console.log(req.flash("error2"))
-    res.send("hello from profile")
-})
-
-
-
-
+// router.get('/profile', isloggedin , function (req, res) {
+//     console.log(req.flash("error2"))
+//     res.send("hello from profile")
+// })
 
 module.exports = router

@@ -23,7 +23,8 @@ exports.registeruser = async function (req, res) {
                     });
                     const token = generateToken(user);
                     res.cookie("token", token)
-                    return res.status(201).json({ message: "User created successfully", user });
+                    res.redirect('/users')
+                    // return res.status(201).json({ message: "User created successfully", user });
                 }
             })
         })
@@ -55,7 +56,7 @@ exports.loginuser = async function (req, res) {
                 res.cookie("token", token);
 
                 // Send success response after setting cookie
-                return res.send('Login successful');
+                return res.redirect('/users');
             } else {
                 return res.status(401).send('Invalid password');
             }
@@ -65,3 +66,4 @@ exports.loginuser = async function (req, res) {
         return res.status(500).send('Server error');
     }
 };
+

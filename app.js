@@ -7,6 +7,7 @@ const userrouter = require('./routes/userroute');
 const productrouter = require('./routes/productroute');
 const expressSession = require('express-session');
 const flash = require('connect-flash');
+const isloggedin = require('./middleware/isloggedin');
 require('dotenv').config();
 
 app.set("view engine", "ejs");
@@ -31,7 +32,11 @@ app.get('/login',function(req,res){
     // console.log(errmessage2)
     res.render('login',{errmessage,errmessage2})
 })
-
+app.get('/logout', function (req, res) {
+    res.cookie("token", "")
+    res.redirect('/login')
+    // return res.send("logout successfully")
+})
 app.use("/owners", ownerrouter);
 app.use("/users", userrouter);
 app.use("/products", productrouter);
