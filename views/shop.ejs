@@ -1,11 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Shop</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
+        integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
+
 <body>
-    <h1>Hello to shop page</h1>
+    <div class="w- full h-screen bg-zinc-900 px-4 pt-4">
+        <h1 class="text-gray-600 font-bold text-xl font-sans">Scatch</h1>
+        <div class="grid grid-cols-12 mt-4">
+            <div class="bg-zinc-700 px-4 col-span-2">
+                <div class="grid grid-rows-3 gap-28">
+                    <div class="flex gap-2 items-center">
+                        <label for="sortOptions" class="block text-white">Sort by :</label>
+                        <select class="outline-none rounded" id="sortOptions">
+                            <option value="name-asc">Popular</option>
+                            <option value="name-desc">Popular</option>
+                            <option value="price-asc">Popular</option>
+                            <option value="price-desc">Popular</option>
+                        </select>
+                    </div>
+                    <div class="grid grid-rows-3 gap-2 text-white">
+                        <h3>New Collection</h3>
+                        <h3>All Products</h3>
+                        <h3>DOn't KNow</h3>
+                    </div>
+                    <div class="grid grid-rows-3 gap-2 pb-4 text-white">
+                        <h3>Filter by:</h3>
+                        <h3>Don't know</h3>
+                        <h3>Discount</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-zinc-800 col-span-10 px-4 py-3 pt-9 pb-16">
+                <div class="grid grid-cols-12 gap-4">
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-span-3">
+                        <div class="h-60 bg-yellow-500">
+
+                        </div>
+                        <div class="bg-blue-700 px-4 flex justify-between items-center py-1">
+                            <div>
+                                <h4 class="font-extrabold text-gray-300 text-base">Price</h4>
+                                <h5 class="font-bold text-gray-300">$600</h5>
+                            </div>
+                            <div class="bg-white px-3 py-1.5 rounded-full">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>
