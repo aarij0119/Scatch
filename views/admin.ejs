@@ -10,6 +10,16 @@
 </head>
 
 <body>
+    <% if(message.length > 0){ %>
+        <div class="absolute w-full flex items-center justify-center   text-white   rounded z-10" role="alert">
+       <div class="bg-green-500 w-56 rounded-lg  px-2 py-2 mt-2">
+        <span>
+            <%= message %>
+          </span>
+       </div>
+      </div>
+  <%  } %>
+    
     <div class="w-full h-screen relative">
         <h1 class="text-gray-600 font-bold text-xl font-sans pt-2 md:px-16 px-4">Scatch</h1>
         <div class="flex gap-28">

@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
     image: {
-        type: String,
+        type: Buffer,
     },
     producname: {
-        type: Buffer,
+        type: String,
         required: true,
         trim: true
     },

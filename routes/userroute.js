@@ -5,7 +5,9 @@ const router = express.Router();
 const userModel = require('../models/user');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const isloggedin = require('../middleware/isloggedin') 
+const isloggedin = require('../middleware/isloggedin');
+const productModel = require('../models/productschema');
+const path = require('path')
 
 
 
@@ -20,16 +22,15 @@ const {registeruser,loginuser} = require('../controllers/userregister')
 require('dotenv').config()
 
 
-router.get('/',isloggedin,function(req,res){
-    res.render('shop')
+router.get('/',isloggedin, async function(req,res){
+const products = await productModel.find()
+// console.log(products)
+res.render('shop',{ products })
 })
 router.post('/register', registeruser);
 
 router.post('/login', loginuser);
 
-// router.get('/profile', isloggedin , function (req, res) {
-//     console.log(req.flash("error2"))
-//     res.send("hello from profile")
-// })
+
 
 module.exports = router

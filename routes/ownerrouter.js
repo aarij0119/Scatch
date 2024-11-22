@@ -40,13 +40,14 @@ if (process.env.NODE_ENV === "development") {
 }
 
 router.get('/admin', function (req, res) {
-    res.render('admin')
+    const message = req.flash("Succcess")
+    res.render('admin', { message })
 
 });
 
-router.post('/admin/product', upload.single('image') ,async function (req, res) {
+router.post('/admin/product', upload.single('image'), async function (req, res) {
     try {
-        const { 
+        const {
             producname,
             productprice,
             productdisc,
@@ -54,8 +55,8 @@ router.post('/admin/product', upload.single('image') ,async function (req, res) 
             panelcolor,
             textcolor
         } = req.body;
- const product = await  productModel.create({
-            image:req.file.buffer,
+        const product = await productModel.create({
+            image: req.file.buffer,
             producname,
             productprice,
             productdisc,
@@ -63,8 +64,9 @@ router.post('/admin/product', upload.single('image') ,async function (req, res) 
             panelcolor,
             textcolor
         });
-        res.redirect('/users')
-        // console.log("product is",product)
+        req.flash("Succcess", "Product created successfully")
+        res.redirect('/owners/admin')
+        // res.send("product is", product)
     } catch (err) {
         res.send(err.message)
     }
