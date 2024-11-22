@@ -4,6 +4,8 @@ const router = express.Router()
 const ownerModel = require('../models/owner');
 const bcrypt = require('bcrypt');
 const isloggedin = require('../middleware/isloggedin');
+const productModel = require('../models/productschema');
+const upload = require('../config/multer-config')
 
 
 // console.log(process.env.NODE_ENV)
@@ -39,6 +41,34 @@ if (process.env.NODE_ENV === "development") {
 
 router.get('/admin', function (req, res) {
     res.render('admin')
+
+});
+
+router.post('/admin/product', upload.single('image') ,async function (req, res) {
+    try {
+        const { 
+            producname,
+            productprice,
+            productdisc,
+            bgcolor,
+            panelcolor,
+            textcolor
+        } = req.body;
+ const product = await  productModel.create({
+            image:req.file.buffer,
+            producname,
+            productprice,
+            productdisc,
+            bgcolor,
+            panelcolor,
+            textcolor
+        });
+        res.redirect('/users')
+        // console.log("product is",product)
+    } catch (err) {
+        res.send(err.message)
+    }
+
 
 });
 

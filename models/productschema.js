@@ -4,15 +4,15 @@ const productSchema = new mongoose.Schema({
     image: {
         type: String,
     },
-    name: {
-        type: String,
+    producname: {
+        type: Buffer,
         required: true,
         trim: true
     },
-    price: {
+    productprice: {
         type: Number,
     },
-    discount: {
+    productdisc: {
         type: Number,
         default:0
     },

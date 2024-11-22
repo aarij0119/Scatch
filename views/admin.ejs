@@ -23,19 +23,19 @@
                 <h1 class="font-bold text-md">Create New Products</h1>
                 <h1 class="font-extrabold text-md mt-2 font-mono">Product Details</h1>
                 <div class="mt-4">
-                    <form action="">
-                        <input type="file" class="outline-none">
+                    <form action="/owners/admin/product" method="post" enctype="multipart/form-data">
+                        <input type="file" name="image" class="outline-none">
                         <div class="mt-4 flex flex-wrap gap-4">
-                            <input type="text" placeholder="Product Name" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                            <input type="text" placeholder="Product Price" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                            <input type="text" placeholder="Discount price" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                            <input type="text" placeholder="Product Name" name="producname" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                            <input type="text" placeholder="Product Price" name="productprice" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                            <input type="text" placeholder="Discount price" name="productdisc" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
                         </div>
                         <div>
                             <h1 class="font-extrabold text-md mt-4 font-mono">Panel Details</h1>
                             <div class="flex gap-4 mt-4">
-                                <input type="text" placeholder="Background Color" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                                <input type="text" placeholder="Panel Color" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                                <input type="text" placeholder="Text Color" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                <input type="text" placeholder="Background Color" name="bgcolor" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                <input type="text" placeholder="Panel Color" name="panelcolor" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                <input type="text" placeholder="Text Color" name="textcolor" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
                             </div>
                             <input type="submit" value="Create New Product" class="mt-5 bg-blue-600 px-3 py-2 font-mono text-white rounded-lg">
                         </div>
