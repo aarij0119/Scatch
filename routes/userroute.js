@@ -16,16 +16,31 @@ app.use(express.urlencoded({ extended: true }));
 router.use(cookieParser());
 
 
-const {registeruser,loginuser} = require('../controllers/userregister')
+const { registeruser, loginuser } = require('../controllers/userregister')
 
 
 require('dotenv').config()
 
 
-router.get('/',isloggedin, async function(req,res){
-const products = await productModel.find()
-// console.log(products)
-res.render('shop',{ products })
+router.get('/', isloggedin, async function (req, res) {
+    const products = await productModel.find()
+    const addmessage = req.flash("success")
+    res.render('shop', { products,addmessage })
+})
+
+router.get('/cart/:id', isloggedin, async function (req, res) {
+    const user = await userModel.findOne({ email: req.user.email })
+    console.log(user)
+    user.cart.push(req.params.id)
+    await user.save()
+    req.flash("success","Add to cart")
+    res.redirect('/users')
+})
+router.get('/cart', isloggedin, async function (req, res) {
+    const user = await userModel.findOne({emai: req.user.emai}).populate('cart');
+    const bill = Number(user.cart[0].productprice) + 20 - Number(user.cart[0].productdisc)
+    res.render('cart', { user , bill })
+    // console.log(user)
 })
 router.post('/register', registeruser);
 
