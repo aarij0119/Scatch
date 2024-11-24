@@ -1,59 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/stylesheets/style.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body>
-    <% if(message.length > 0){ %>
+<%- include('../partials/header') %>
+    <% if(message.length> 0){ %>
         <div class="absolute w-full flex items-center justify-center   text-white   rounded z-10" role="alert">
-       <div class="bg-green-500 w-56 rounded-lg  px-2 py-2 mt-2">
-        <span>
-            <%= message %>
-          </span>
-       </div>
-      </div>
-  <%  } %>
-    
-    <div class="w-full h-screen relative">
-        <h1 class="text-gray-600 font-bold text-xl font-sans pt-2 md:px-16 px-4">Scatch</h1>
-        <div class="flex gap-28">
-            <div class="w-72 md:px-16 px-4">
-                <div class="mt-4 text-gray-500 text-base font-bold">
-                    <h4>Admin panel</h4>
-                    <h4>Create New Products</h4>
-                </div>
-            </div>
-            <div class="mt-10">
-                <h1 class="font-bold text-md">Create New Products</h1>
-                <h1 class="font-extrabold text-md mt-2 font-mono">Product Details</h1>
-                <div class="mt-4">
-                    <form action="/owners/admin/product" method="post" enctype="multipart/form-data">
-                        <input type="file" name="image" class="outline-none">
-                        <div class="mt-4 flex flex-wrap gap-4">
-                            <input type="text" placeholder="Product Name" name="producname" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                            <input type="text" placeholder="Product Price" name="productprice" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                            <input type="text" placeholder="Discount price" name="productdisc" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                        </div>
-                        <div>
-                            <h1 class="font-extrabold text-md mt-4 font-mono">Panel Details</h1>
-                            <div class="flex gap-4 mt-4">
-                                <input type="text" placeholder="Background Color" name="bgcolor" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                                <input type="text" placeholder="Panel Color" name="panelcolor" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                                <input type="text" placeholder="Text Color" name="textcolor" class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
-                            </div>
-                            <input type="submit" value="Create New Product" class="mt-5 bg-blue-600 px-3 py-2 font-mono text-white rounded-lg">
-                        </div>
-                    </form>
-                </div>
+            <div class="bg-green-500 w-56 rounded-lg  px-2 py-2 mt-2">
+                <span>
+                    <%= message %>
+                </span>
             </div>
         </div>
+        <% } %>
 
-</body>
+            <div class="w-full h-screen relative">
+                <h1 class="text-gray-600 font-bold text-xl font-sans pt-2 md:px-16 px-4">Scatch</h1>
+                <div class="flex gap-28">
+                    <div class="w-72 md:px-16 px-4">
+                        <div class="mt-4 text-gray-500 text-base font-bold">
+                            <h4>Admin panel</h4>
+                            <h4>Create New Products</h4>
+                            <a class="text-blue-600" href="/users">Go Back</a>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <h1 class="font-bold text-md">Create New Products</h1>
+                        <h1 class="font-extrabold text-md mt-2 font-mono">Product Details</h1>
+                        <div class="mt-4">
+                            <form action="/owners/admin/product" method="post" enctype="multipart/form-data">
+                                <input type="file" name="image" class="outline-none">
+                                <div class="mt-4 flex flex-wrap gap-4">
+                                    <input type="text" placeholder="Product Name" name="producname"
+                                        class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                    <input type="text" placeholder="Product Price" name="productprice"
+                                        class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                    <input type="text" placeholder="Discount price" name="productdisc"
+                                        class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                </div>
+                                <div>
+                                    <h1 class="font-extrabold text-md mt-4 font-mono">Panel Details</h1>
+                                    <div class="flex gap-4 mt-4">
+                                        <input type="text" placeholder="Background Color" name="bgcolor"
+                                            class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                        <input type="text" placeholder="Panel Color" name="panelcolor"
+                                            class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                        <input type="text" placeholder="Text Color" name="textcolor"
+                                            class="bg-gray-300 border px-2 py-2 outline-none focus:rounded-lg">
+                                    </div>
+                                    <input type="submit" value="Create New Product"
+                                        class="mt-5 bg-blue-600 px-3 py-2 font-mono text-white rounded-lg">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-</html>
+                <%- include('../partials/footer') %>

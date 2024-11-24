@@ -1,22 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-
-
-
-<body>
+<%- include('../partials/header') %>
     <div class="w- full h-screen bg-zinc-900 px-4 pt-4">
         <div class="w-full bg-red-500 flex items-center justify-center">
             <% if(addmessage.length> 0){ %>
-                <div class="bg-red-500 border border-red-400 text-white w-38 mt-12  px-4 py-3 rounded  absolute translate-x-1/2" role="alert">
-                  <span class="block sm:inline">
-                    <%= addmessage %>
-                  </span>
+                <div class="bg-red-500 border border-red-400 text-white w-38 mt-12  px-4 py-3 rounded  absolute translate-x-1/2"
+                    role="alert">
+                    <span class="block sm:inline">
+                        <%= addmessage %>
+                    </span>
                 </div>
                 <% } %>
         </div>
+
         
-        <h1 class="text-gray-600 font-bold text-xl font-sans">Scatch</h1>
-        <div class="grid grid-cols-12 mt-4 h-[46rem]">
+        <div class="grid grid-cols-12 mt-4 h-[41rem]">
             <div class="bg-zinc-700 px-4 col-span-2">
                 <div class="grid grid-rows-3 gap-28">
                     <div class="flex gap-2 items-center">
@@ -42,31 +38,34 @@
             </div>
             <div class="bg-zinc-800 col-span-10   overflow-hidden overflow-y-auto px-4 py-3 pt-9 pb-16" id="product">
                 <div class="grid grid-cols-12 gap-4 overflow-hidden ">
-                    <% if (products.length === 0) { %>
+                    <% if (products.length===0) { %>
                         <h1 class="col-span-12 text-blue-600 text-xl font-bold font-mono">No products yet</h1>
-                    <% } else { %>
-                        <% products.forEach(function(product) { %>
-                            <div class="col-span-3 rounded-lg overflow-hidden">
-                                <div class="h-60 bg-[<%= product.bgcolor %>]">
-                                    <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>" alt="Product Image" class="w-full h-full bg-cover p-4">
-                                </div>
-                                <div class="bg-[<%= product.panelcolor  %>] px-4 flex justify-between items-center py-1">
-                                    <div>
-                                        <h4 class="font-extrabold text-base text-[<%= product.textcolor %>]">Price</h4>
-                                        <h5 class="font-bold text-gray-300"> ₹ <%= product.productprice %></h5>
-
+                        <% } else { %>
+                            <% products.forEach(function(product) { %>
+                                <div class="col-span-3 rounded-lg overflow-hidden">
+                                    <div class="h-60 bg-[<%= product.bgcolor %>]">
+                                        <img src="data:image/jpeg;base64,<%= product.image.toString('base64') %>"
+                                            alt="Product Image" class="w-full h-full bg-cover p-4">
                                     </div>
-                                    <a href="/users/cart/<%= product._id %>" class="bg-white px-3 py-1.5 rounded-full">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>
-                                    </a>
+                                    <div
+                                        class="bg-[<%= product.panelcolor  %>] px-4 flex justify-between items-center py-1">
+                                        <div>
+                                            <h4 class="font-extrabold text-base text-[<%= product.textcolor %>]">Price
+                                            </h4>
+                                            <h5 class="font-bold text-gray-300"> ₹ <%= product.productprice %>
+                                            </h5>
+
+                                        </div>
+                                        <a href="/users/cart/<%= product._id %>"
+                                            class="bg-white px-3 py-1.5 rounded-full">
+                                            <i class="fa fa-plus" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        <% }); %>
-                    <% } %>
+                                <% }); %>
+                                    <% } %>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
-</html>
+<%- include('../partials/footer') %>

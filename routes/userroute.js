@@ -25,23 +25,35 @@ require('dotenv').config()
 router.get('/', isloggedin, async function (req, res) {
     const products = await productModel.find()
     const addmessage = req.flash("success")
-    res.render('shop', { products,addmessage })
+    res.render('shop', { products, addmessage })
 })
 
 router.get('/cart/:id', isloggedin, async function (req, res) {
     const user = await userModel.findOne({ email: req.user.email })
-    console.log(user)
+    // console.log(user)
     user.cart.push(req.params.id)
     await user.save()
-    req.flash("success","Add to cart")
+    req.flash("success", "Add to cart")
     res.redirect('/users')
 })
+
 router.get('/cart', isloggedin, async function (req, res) {
-    const user = await userModel.findOne({emai: req.user.emai}).populate('cart');
-    const bill = Number(user.cart[0].productprice) + 20 - Number(user.cart[0].productdisc)
-    res.render('cart', { user , bill })
-    // console.log(user)
-})
+    const user = await userModel.findOne({ email: req.user.email }).populate('cart');
+    if (!user) {
+        return res.status(404).send('User not found');
+    }
+
+    // No need to calculate `bill` in the route if it's done individually for each product in the template
+    res.render('cart', { user });
+});
+
+
+// router.get('/cart', isloggedin, async function (req, res) {
+//     const user = await userModel.findOne({emai: req.user.emai}).populate('cart');
+//     const bill = Number(user.cart[0].productprice) + 20 - Number(user.cart[0].productdisc)
+//     res.render('cart', { user , bill })
+//     // console.log(user)
+// })
 router.post('/register', registeruser);
 
 router.post('/login', loginuser);

@@ -40,8 +40,9 @@ if (process.env.NODE_ENV === "development") {
 }
 
 router.get('/admin', function (req, res) {
+    const includeheader = false
     const message = req.flash("Succcess")
-    res.render('admin', { message })
+    res.render('admin', { message, includeheader })
 
 });
 
